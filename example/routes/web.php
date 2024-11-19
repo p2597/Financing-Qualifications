@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Loan;
 
 Route::get('/', function () {
-    return view('home');
+    $loans = loan::all();
+    dd($loans[0]->description);
 });
 
 Route::get('/loans', function () {
