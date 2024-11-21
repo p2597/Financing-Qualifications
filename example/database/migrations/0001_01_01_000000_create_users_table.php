@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreignId('employment_type_id')->nullable()->constrained('employment_types')->onDelete('set null');
+        $table->decimal('annual_salary', 10, 2)->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
